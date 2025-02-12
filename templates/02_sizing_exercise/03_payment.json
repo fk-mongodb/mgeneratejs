@@ -1,0 +1,83 @@
+{
+    "trackingNumber": {
+        "$join": {
+            "array": [
+                "IZ",
+                {
+                    "$string": {
+                        "length": 16,
+                        "numeric": true
+                    }
+                }
+            ],
+            "sep": "-"
+        }
+    },
+    "paymentDate": "$date",
+    "paymentCard": {
+        "cardType": "$cc_type",
+        "cardNumber": "$cc",
+        "expirationMonthYear": "$exp",
+        "cvv": {
+            "$choose": {
+                "from": [
+                    {
+                        "$string": {
+                            "length": 3,
+                            "numeric": true
+                        }
+                    },
+                    {
+                        "$string": {
+                            "length": 4,
+                            "numeric": true
+                        }
+                    }
+                ]
+            }
+        },
+        "billingAddress": {
+            "country": "$country",
+            "state": "$state",
+            "city": "$city",
+            "postcode": "$postcode",
+            "street": "$street",
+            "apartment": {
+                "$string": {
+                    "length": 3,
+                    "casing": "upper",
+                    "alpha": true,
+                    "numeric": true
+                }
+            }
+        }
+    },
+    "vatId": {
+        "$join": {
+            "array": [
+                "$country",
+                {
+                    "$string": {
+                        "length": 9,
+                        "numeric": true
+                    }
+                }
+            ],
+            "sep": ""
+        }
+    },
+    "customBrokerId": {
+        "$string": {
+            "length": 10,
+            "numeric": true
+        }
+    },
+    "promoCode": {
+        "$string": {
+            "length": 6,
+            "alpha": true,
+            "numeric": false,
+            "casing": "upper"
+        }
+    }
+}

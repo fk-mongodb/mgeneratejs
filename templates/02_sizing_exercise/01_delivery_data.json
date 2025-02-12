@@ -1,0 +1,120 @@
+{
+    "trackingNumber": {
+        "$join": {
+            "array": [
+                "IZ",
+                {
+                    "$string": {
+                        "length": 16,
+                        "numeric": true
+                    }
+                }
+            ],
+            "sep": "-"
+        }
+    },
+    "rfid": {
+        "$string": {
+            "length": 16,
+            "numeric": true
+        }
+    },
+    "status": {
+        "$choose": {
+            "from": [
+                "Received",
+                "AtOrigin",
+                "InCustoms",
+                "InTransit",
+                "AtDestinationWarehouse",
+                "OutOnDelivery",
+                "Delivered",
+                "Exception",
+                "Returned"
+            ]
+        }
+    },
+    "scheduledDelivery": "$date",
+    "shippedFrom": {
+        "country": "$country",
+        "state": "$state",
+        "city": "$city",
+        "postcode": "$postcode",
+        "street": "$street",
+        "apartment": {
+            "$string": {
+                "length": 3,
+                "casing": "upper",
+                "alpha": true,
+                "numeric": true
+            }
+        }
+    },
+    "shippedFromEmail": "$email",
+    "shippedTo": {
+        "country": "$country",
+        "state": "$state",
+        "city": "$city",
+        "postcode": "$postcode",
+        "street": "$street",
+        "apartment": {
+            "$string": {
+                "length": 3,
+                "casing": "upper",
+                "alpha": true,
+                "numeric": true
+            }
+        }
+    },
+    "shippedToEmail": "$email",
+    "shipmentReference": {
+        "$sentence": {
+            "words": 5
+        }
+    },
+    "shippedOn": "$date",
+    "serviceType": {
+        "$choose": {
+            "from": [
+                "Express Plus",
+                "Express",
+                "Express Saver",
+                "Standard"
+            ]
+        }
+    },
+    "weight": {
+        "$integer": {
+            "min": 1,
+            "max": 10
+        }
+    },
+    "dimension": {
+        "length": {
+            "$integer": {
+                "min": 1,
+                "max": 50
+            }
+        },
+        "width": {
+            "$integer": {
+                "min": 1,
+                "max": 50
+            }
+        },
+        "height": {
+            "$integer": {
+                "min": 1,
+                "max": 50
+            }
+        },
+        "oversized": {
+            "$choose": {
+                "from": [
+                    "Yes",
+                    "No"
+                ]
+            }
+        }
+    }
+}

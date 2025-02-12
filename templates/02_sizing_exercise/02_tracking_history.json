@@ -1,0 +1,43 @@
+{
+    "date": "$date",
+    "rfid": {
+        "$string": {
+            "length": 16,
+            "numeric": true
+        }
+    },
+    "location": {
+        "$join": {
+            "array": [
+                "$company",
+                "$city",
+                "$country"
+            ],
+            "sep": ", "
+        }
+    },
+    "gpsLocation": "$point",
+    "activity": {
+        "$choose": {
+            "from": [
+                "origin scan",
+                "departure scan",
+                "export scan",
+                "customs entry",
+                "customs exit",
+                "import scan",
+                "destination scan",
+                "out on delivery",
+                "delivered"
+            ]
+        }
+    },
+    "internalActivity":{
+        "$choose": {
+            "from": [
+                "Yes",
+                "No"
+            ]
+        }
+    }
+}
