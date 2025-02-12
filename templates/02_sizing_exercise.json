@@ -1,0 +1,14 @@
+{
+    "id": "$cf",
+    "lastName": "$last",
+    "firstName": "$first",
+    "gender": "$gender",
+    "age": "$age",
+    "address": "$address",
+    "emails": {
+        "$array": {
+            "of": "$email",
+            "number": 10
+        }
+    }
+}
