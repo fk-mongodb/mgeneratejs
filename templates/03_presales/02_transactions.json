@@ -1,0 +1,15 @@
+{
+    "amount": {
+        "$floating": {
+            "min": 1000,
+            "max": 2000,
+            "fixed": 2
+        }
+    },
+    "account": {
+        "name": "$company",
+        "address": "$address",
+        "email": "$email",
+        "contactPerson": "$name"
+    }
+}

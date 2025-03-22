@@ -1,0 +1,27 @@
+{
+    "firstName": "$first",
+    "lastName": "$last",
+    "age": "$age",
+    "gender": "$gender",
+    "emails": {
+        "$array": {
+            "of": "$email",
+            "number": 2
+        }
+    },
+    "phones": {
+        "$array": {
+            "of": "$phone",
+            "number": 2
+        }
+    },
+    "shift":{
+        "$choose": {
+            "from": [
+                "Morning",
+                "Afternoon",
+                "Evening"
+            ]
+        }
+    }
+}
