@@ -1,0 +1,2 @@
+@REM https://chancejs.com/index.html
+node .\bin\mgenerate.js .\templates\03_presales\03_ships.json -n 100 > .\data\03_presales\03_ships.json

@@ -1,0 +1,182 @@
+{
+    "transactionId": {
+        "$integer": {
+            "min": 10000000,
+            "max": 99999999
+        }
+    },
+    "accountNo": {
+        "$string": {
+            "length": 12,
+            "pool": "1234567890"
+        }
+    },
+    "accountType": {
+        "$string": {
+            "length": 3,
+            "pool": "MBA"
+        }
+    },
+    "amount": {
+        "$integer": {
+            "min": 100,
+            "max": 999
+        }
+    },
+    "availableBalance": {
+        "$integer": {
+            "min": 11111111111111,
+            "max": 75104892697565
+        }
+    },
+    "beneficiaryAccountName": "$company",
+    "beneficiaryCif": {
+        "$string": {
+            "length": 32,
+            "alpha": true,
+            "casing": "lower"
+        }
+    },
+    "categoryCode": {
+        "$string": {
+            "length": 4,
+            "alpha": true,
+            "casing": "upper"
+        }
+    },
+    "cif": {
+        "$string": {
+            "length": 32,
+            "alpha": true,
+            "casing": "lower"
+        }
+    },
+    "createdAt": "$date",
+    "currency": {
+        "$choose": {
+            "from": [
+                "IDR",
+                "SGD",
+                "USD"
+            ]
+        }
+    },
+    "customerId": {
+        "$string": {
+            "length": 10,
+            "pool": "1234567890"
+        }
+    },
+    "debitCredit": {
+        "$choose": {
+            "from": [
+                "CREDIT",
+                "DEBIT"
+            ]
+        }
+    },
+    "entryDateTime": "$date",
+    "exchangeRate": {
+        "$floating": {
+            "min": 1,
+            "max": 2,
+            "fixed": 2
+        }
+    },
+    "executorCif": {
+        "$string": {
+            "length": 32,
+            "alpha": true,
+            "casing": "lower"
+        }
+    },
+    "executorName": "$name",
+    "extAccountNo": {
+        "$string": {
+            "length": 12,
+            "pool": "1234567890"
+        }
+    },
+    "extAdditionalInformation1": "$paragraph",
+    "extAdditionalInformation2": "$paragraph",
+    "extCardId": "$guid",
+    "extCardName": "$name",
+    "extCardNo": "$cc",
+    "institutionalCode": {
+        "$string": {
+            "length": 5,
+            "alpha": true,
+            "casing": "upper"
+        }
+    },
+    "institutionalName": "$company",
+    "internalExternal": {
+        "$choose": {
+            "from": [
+                "EXTERNAL",
+                "INTERNAL"
+            ]
+        }
+    },
+    "merchantLocation": "$address",
+    "merchantName": "$company",
+    "merchantOrderId": "$guid",
+    "notes": "$sentence",
+    "originalTransactionAmount": {
+        "$integer": {
+            "min": 100,
+            "max": 999
+        }
+    },
+    "originalTransactionCurrency": {
+        "$choose": {
+            "from": [
+                "IDR",
+                "SGD",
+                "USD"
+            ]
+        }
+    },
+    "partnerName": "$name",
+    "partnerOrg": "$company",
+    "paymentInstructionID": {
+        "$string": {
+            "length": 32,
+            "alpha": true,
+            "casing": "lower"
+        }
+    },
+    "piId": {
+        "$string": {
+            "length": 32,
+            "alpha": true,
+            "casing": "lower"
+        }
+    },
+    "runningBalance": {
+        "$integer": {
+            "min": 11111111111111,
+            "max": 75104892697565
+        }
+    },
+    "sourceAccountName": "$name",
+    "sourceCif": {
+        "$string": {
+            "length": 32,
+            "alpha": true,
+            "casing": "lower"
+        }
+    },
+    "thirdPartyIncomingId": "$guid",
+    "thirdPartyOutgoingId": "$guid",
+    "transactionCode": {
+        "$string": {
+            "length": 4,
+            "alpha": true,
+            "casing": "upper"
+        }
+    },
+    "transactionDateTime": "$date",
+    "transactionIdentifier": "$sentence",
+    "updatedAt": "$date"
+}

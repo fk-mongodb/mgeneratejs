@@ -1,0 +1,10 @@
+{
+    "name": "$company",
+    "company": "$company",
+    "address": "$address",
+    "city": "$city",
+    "country": "$country", 
+    "email": "$email",
+    "contactPerson": "$name",
+    "lastPosition": "$coordinates"
+}
